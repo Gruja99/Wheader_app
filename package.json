@@ -1,0 +1,21 @@
+{
+  "name": "weatherapp",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "dotenv": "^8.2.0",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "express-json": "^1.0.0",
+    "geolocation": "^0.2.0",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1",
+    "npm-navigator": "^2.0.1",
+    "request": "^2.88.2"
+  }
+}

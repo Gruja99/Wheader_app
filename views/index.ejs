@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  
+<% include header.ejs %>
+
+<body>
+    <div class="container">
+				<div id="card" class="weater">
+					<div class="city-main">
+						<div class="day_name"><%= 
+							((new Date((weather.daily[0].dt)*1000)).toLocaleString('en-us', {  weekday: 'long' })) %></div>
+						<article>
+							<div class="col-md-3">
+                       
+								<div class="city"><span>City: </span><span><%= weather.city %></span>
+                                <p>Min: <%= Math.round(weather.daily[0].temp.min) %>&#176; </p>
+                                <p>Max: <%= Math.round(weather.daily[0].temp.max) %>&#176;</p>
+                            </div>
+							</div>	
+							
+							<div class="col-md-3 centar">
+								<div class="temp pt-5"><%= Math.round(weather.current.temp) %>&#176;</div>
+							</div>
+							<div class="col-md-3 centar">
+								<div class="wind pt-5">
+                                    
+                                    <span>Wind:</span>
+									<span><%= weather.current.wind_speed %> m/s</span>
+								</div>
+							</div>
+							<div class="col-md-3 centar">
+							<div class="icon mr-5 mt-3">
+								<img id="icon" src="http://openweathermap.org/img/wn/<%= weather.daily[0].weather[0].icon %>@4x.png" alt="">
+                                </div>
+							</div>
+						
+						</article>
+						
+						<figure style="background-image: url(http://136.243.1.253/~creolitic/bootsnipp/home.jpg)"></figure>
+					</div>
+
+					<div class="days">
+						<div class="row row-no-gutter">
+                            <% for (var i=1; i <5;  i++ ) { %>
+							<div class="col-md-3">
+								<div class="day">
+									<h1><%= 
+                                        ((new Date((weather.daily[i].dt)*1000)).toLocaleString('en-us', {  weekday: 'long' })) %></h1>
+                                            <img id="icon" src="http://openweathermap.org/img/wn/<%= weather.daily[i].weather[0].icon %>@4x.png" alt="">
+                                            
+                                    <div class="d-flex mx-5"><div><p>Min: </p><p><%= Math.round(weather.daily[i].temp.min) %>&#176;</p></div><div class="ml-auto"> <p class="ml-end">Max</p> <p class="ml-auto"><%= Math.round(weather.daily[i].temp.max) %>&#176;</p></div></div>
+							
+								</div>
+							</div>
+                            <% } %>
+							
+						</div>
+					</div>
+				</div>
+	</div>
+</body>
+</html>
